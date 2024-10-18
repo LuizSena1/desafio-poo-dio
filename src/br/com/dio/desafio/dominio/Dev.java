@@ -2,7 +2,7 @@ package br.com.dio.desafio.dominio;
 
 import java.util.*;
 
-public class Dev {
+public class Dev extends Data{
     private String nome;
     private Set<Conteudo> conteudosInscritos = new LinkedHashSet<>();
     private Set<Conteudo> conteudosConcluidos = new LinkedHashSet<>();
@@ -37,13 +37,9 @@ public class Dev {
                 .sum();*/
     }
 
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
+    @Override
+    protected String idPrefix() {
+        return "Dev-";
     }
 
     public Set<Conteudo> getConteudosInscritos() {
@@ -57,21 +53,26 @@ public class Dev {
     public Set<Conteudo> getConteudosConcluidos() {
         return conteudosConcluidos;
     }
+    public void ListarConteudoInscrito(){
+        List<Conteudo> conteudoList = new ArrayList<>(conteudosInscritos);
+        System.out.println("Conteudos Inscritos Dev " + this.getNome() +":");
+        for(int i=0 ; i < conteudosInscritos.size(); i++){
+            System.out.println(conteudoList.get(i));
+        }
+        System.out.println("-------------------");
+    }
+
+    public void ListarConcluidos(){
+        List<Conteudo> conteudoList = new ArrayList<>(conteudosConcluidos);
+        System.out.println("Conteudos Concluidos Dev " + this.getNome() +":");
+        for(int i=0;i < conteudosConcluidos.size(); i++){
+            System.out.println(conteudoList.get(i));
+        }
+        System.out.println("-------------------");
+    }
 
     public void setConteudosConcluidos(Set<Conteudo> conteudosConcluidos) {
         this.conteudosConcluidos = conteudosConcluidos;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Dev dev = (Dev) o;
-        return Objects.equals(nome, dev.nome) && Objects.equals(conteudosInscritos, dev.conteudosInscritos) && Objects.equals(conteudosConcluidos, dev.conteudosConcluidos);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(nome, conteudosInscritos, conteudosConcluidos);
-    }
 }
