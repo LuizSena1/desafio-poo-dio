@@ -50,4 +50,8 @@ public class Bootcamp extends Data{
     protected String idPrefix() {
         return "Boot-";
     }
+    @Override
+    public int hashCode() {
+        return Objects.hash(nome, descricao, dataInicial, dataFinal, devsInscritos, conteudos);
+    }
 }
