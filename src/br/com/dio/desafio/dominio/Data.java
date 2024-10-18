@@ -2,6 +2,7 @@ package br.com.dio.desafio.dominio;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public abstract class Data {
+
     private String nome;
     private static final AtomicInteger ID = new AtomicInteger();
     private final int id;

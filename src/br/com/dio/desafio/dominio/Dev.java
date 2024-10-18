@@ -3,7 +3,6 @@ package br.com.dio.desafio.dominio;
 import java.util.*;
 
 public class Dev extends Data{
-    private String nome;
     private Set<Conteudo> conteudosInscritos = new LinkedHashSet<>();
     private Set<Conteudo> conteudosConcluidos = new LinkedHashSet<>();
 
@@ -30,11 +29,6 @@ public class Dev extends Data{
             soma += next;
         }
         return soma;
-
-        /*return this.conteudosConcluidos
-                .stream()
-                .mapToDouble(Conteudo::calcularXp)
-                .sum();*/
     }
 
     @Override
